@@ -20,6 +20,7 @@ public class CreateAccountTests extends TestBase
         //firstname
         click(By.name("FirstName"));
         type(By.name("FirstName"), "Ivan");
+
         //lastname
         click(By.name("LastName"));
         type(By.name("LastName"), "Ivanov");
