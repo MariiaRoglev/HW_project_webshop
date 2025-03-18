@@ -34,12 +34,14 @@ public class TestBase {
     }
 
 
-    public void type(By locator, String text) {
+    public void type(By locator, String text) //refuctoring 5
+    {
         driver.findElement(locator).clear();
         driver.findElement(locator).sendKeys(text);
     }
 
-    public void click(By locator) {
+    public void click(By locator) //refuctoring 6
+    {
         driver.findElement(locator).click();
     }
 }
