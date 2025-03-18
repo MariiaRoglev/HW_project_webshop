@@ -27,12 +27,10 @@ public class TestBase {
         driver.quit();
     }
 
-
     public boolean IsElementPresent (By locator) //refuctoring 4
     {
         return driver.findElements(locator).size()>0;
     }
-
 
     public void type(By locator, String text) //refuctoring 5
     {
