@@ -12,7 +12,7 @@ public class CreateAccountTests extends TestBase
         //click Register button
         click(By.className("ico-register"));
 
-        //fill in all fields with valid data
+        //FILL IN ALL THE FIELDS WITH VALID DATA
 
         //gender
         click(By.id("gender-female"));
