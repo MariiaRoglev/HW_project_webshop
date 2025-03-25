@@ -96,4 +96,14 @@ public class TestBase {
     public void LoginErrorDisplayed() {
         Assert.assertTrue(IsElementPresent(By.xpath("//span[text()='Login was unsuccessful. Please correct the errors and try again.']")));
     }
+
+    //need to wait before assertion
+        public void pause (int millis)
+        {
+            try {
+                Thread.sleep(millis);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
 }
