@@ -130,4 +130,14 @@ public class TestBase {
     public void checkPopUpAppears() {
         Assert.assertTrue(IsElementPresent(By.xpath("//p[text()='The product has been added to your ']")));
     }
+
+    public String getProductInCart() {
+        String productInCart = getProductInList("tbody:nth-child(3) tr:nth-child(1) td:nth-child(3) [href='/141-inch-laptop']");
+        return productInCart;
+    }
+
+    public String getProductInList(String cssSelector) {
+        String productInList = this.driver.findElement(By.cssSelector(cssSelector)).getText();
+        return productInList;
+    }
 }

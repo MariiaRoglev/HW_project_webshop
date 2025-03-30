@@ -1,6 +1,5 @@
 package com.webshop.tests;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -23,8 +22,8 @@ public class AddItemToCartTests extends TestBase
         public void AddToCart()
     {
         //check that Element exists in list of products
-        String productInList = this.driver.findElement(By.cssSelector("div:nth-child(3) h2:first-child [href='/141-inch-laptop']")).getText();
-        
+        String productInList = getProductInList("div:nth-child(3) h2:first-child [href='/141-inch-laptop']");
+
         clickAddProToCart();
         pause(3000);
         checkPopUpAppears();
@@ -33,7 +32,7 @@ public class AddItemToCartTests extends TestBase
         clickOnCartFromHeader();
 
         //check that Element exists in Cart of products
-        String productInCart = this.driver.findElement(By.cssSelector("tbody:nth-child(3) tr:nth-child(1) td:nth-child(3) [href='/141-inch-laptop']")).getText();
+        String productInCart = getProductInCart();
 
         prInListEqualPrInCart(productInCart, productInList);
     }
