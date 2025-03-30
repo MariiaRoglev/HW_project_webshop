@@ -132,12 +132,12 @@ public class TestBase {
     }
 
     public String getProductInCart() {
-        String productInCart = getProductInList("tbody:nth-child(3) tr:nth-child(1) td:nth-child(3) [href='/141-inch-laptop']");
+        String productInCart = this.driver.findElement(By.cssSelector("tbody:nth-child(3) tr:nth-child(1) td:nth-child(3) [href='/141-inch-laptop']")).getText();
         return productInCart;
     }
 
-    public String getProductInList(String cssSelector) {
-        String productInList = this.driver.findElement(By.cssSelector(cssSelector)).getText();
+    public String getProductInList() {
+        String productInList = this.driver.findElement(By.cssSelector("div:nth-child(3) h2:first-child [href='/141-inch-laptop']")).getText();
         return productInList;
     }
 }

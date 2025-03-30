@@ -22,7 +22,7 @@ public class AddItemToCartTests extends TestBase
         public void AddToCart()
     {
         //check that Element exists in list of products
-        String productInList = getProductInList("div:nth-child(3) h2:first-child [href='/141-inch-laptop']");
+        String productInList = getProductInList();
 
         clickAddProToCart();
         pause(3000);
@@ -36,7 +36,6 @@ public class AddItemToCartTests extends TestBase
 
         prInListEqualPrInCart(productInCart, productInList);
     }
-
 
 //------------------------------------------------------------------------------------------------
 //    @Test
