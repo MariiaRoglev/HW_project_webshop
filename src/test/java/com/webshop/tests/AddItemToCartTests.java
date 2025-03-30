@@ -1,14 +1,8 @@
 package com.webshop.tests;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.tracing.opentelemetry.SeleniumSpanExporter;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import javax.swing.*;
-import java.util.List;
 
 public class AddItemToCartTests extends TestBase
 
@@ -29,45 +23,20 @@ public class AddItemToCartTests extends TestBase
         public void Test()
     {
         //check that Element exists in list of products
-        WebElement productInList = this.driver.findElement(By.cssSelector("div:nth-child(3) h2:first-child [href='/141-inch-laptop']"));
-        System.out.println(productInList.getText());
-
+        String productInList = this.driver.findElement(By.cssSelector("div:nth-child(3) h2:first-child [href='/141-inch-laptop']")).getText();
+        
         clickAddProToCart();
         pause(3000);
-
-        //check that Pop-Up appears
-        Assert.assertTrue(IsElementPresent(By.xpath("//p[text()='The product has been added to your ']")));
-
+        checkPopUpAppears();
         clickOnCartFromPopUp();
         clickOnLogo();
         clickOnCartFromHeader();
 
-        //check that prod was added
-        WebElement productInCart = this.driver.findElement(By.cssSelector("tbody:nth-child(3) tr:nth-child(1) td:nth-child(3) [href='/141-inch-laptop']"));
-        System.out.println(productInCart.getText());
+        //check that Element exists in Cart of products
+        String productInCart = this.driver.findElement(By.cssSelector("tbody:nth-child(3) tr:nth-child(1) td:nth-child(3) [href='/141-inch-laptop']")).getText();
 
-        //Assert.assertEquals(productInCart,productInList);
-        Assert.assertEquals(productInCart.getText(),productInList.getText());
+        prInListEqualPrInCart(productInCart, productInList);
     }
-
-    public void clickOnCartFromHeader() {
-        click(By.xpath("//span[text()='Shopping cart']"));
-    }
-
-    public void clickOnCartFromPopUp() {
-        click(By.cssSelector("[href='/cart']"));
-    }
-
-    public void clickOnLogo() {
-        click(By.cssSelector("[src='/Themes/DefaultClean/Content/images/logo.png']"));
-    }
-
-    public void clickAddProToCart() {
-        click(By.cssSelector("[onclick*='31/1/1']"));
-    }
-
-
-
 
 
 //------------------------------------------------------------------------------------------------

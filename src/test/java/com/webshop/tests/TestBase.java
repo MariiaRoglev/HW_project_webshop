@@ -12,6 +12,10 @@ import java.time.Duration;
 public class TestBase {
     WebDriver driver; //refuctoring 1
 
+    public static void prInListEqualPrInCart(String productInCart, String productInList) {
+        Assert.assertEquals(productInCart, productInList);
+    }
+
     @BeforeMethod //refuctoring 2
     public void preconditions()
     {
@@ -106,4 +110,24 @@ public class TestBase {
                 throw new RuntimeException(e);
             }
         }
+
+    public void clickOnCartFromHeader() {
+        click(By.xpath("//span[text()='Shopping cart']"));
+    }
+
+    public void clickOnCartFromPopUp() {
+        click(By.cssSelector("[href='/cart']"));
+    }
+
+    public void clickOnLogo() {
+        click(By.cssSelector("[src='/Themes/DefaultClean/Content/images/logo.png']"));
+    }
+
+    public void clickAddProToCart() {
+        click(By.cssSelector("[onclick*='31/1/1']"));
+    }
+
+    public void checkPopUpAppears() {
+        Assert.assertTrue(IsElementPresent(By.xpath("//p[text()='The product has been added to your ']")));
+    }
 }
