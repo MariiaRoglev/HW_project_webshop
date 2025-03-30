@@ -9,18 +9,18 @@ public class CreateAccountTests extends TestBase
     {
         clickRegBTN();
         chooseGender();
-        fillAllFields(new UserRegData().setName("Ivan").setSurName("Ivanov").setMail("ttfopdvanovivaon@gamil.com").setPassword("QwertyQwerty1!"));
+        fillAllFields(new UserRegData().setName("Ivan").setSurName("Ivanov").setMail("IvanN@gamil.com").setPassword("QwertyQwerty1!"));
         registration();
         clickContinueBtn();
         isLogoutBtnPresent();
     }
 
     @Test
-    public void createExistedUser ()
+    public void createUserWithEmptyEmail ()
     {
         clickRegBTN();
         chooseGender();
-        fillAllFields(new UserRegData().setName("Ivan").setSurName("Ivanov").setMail("ttfopdvanovivaon@gamil.com").setPassword("QwertyQwerty1!"));
+        fillAllFields(new UserRegData().setName("Ivan").setSurName("Ivanov").setMail("").setPassword("QwertyQwerty1!"));
         registration();
         RegErrorDisplayed();
     }

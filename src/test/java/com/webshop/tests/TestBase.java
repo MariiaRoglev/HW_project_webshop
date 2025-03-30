@@ -90,7 +90,7 @@ public class TestBase {
     }
 
     public void RegErrorDisplayed() {
-        Assert.assertTrue(IsElementPresent(By.xpath("//li[text()='The specified email already exists']")));
+        Assert.assertTrue(IsElementPresent(By.xpath("//span[text()='Email is required.']")));
     }
 
     public void LoginErrorDisplayed() {
