@@ -34,6 +34,7 @@ public class AddItemToCartTests extends TestBase
         //check that Element exists in Cart of products
         String productInCart = getProductInCart();
 
+        //check that productInList is equal to productInCart
         prInListEqualPrInCart(productInCart, productInList);
     }
 
