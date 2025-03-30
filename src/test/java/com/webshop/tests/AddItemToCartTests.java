@@ -20,7 +20,7 @@ public class AddItemToCartTests extends TestBase
 
     @Test
 
-        public void Test()
+        public void AddToCart()
     {
         //check that Element exists in list of products
         String productInList = this.driver.findElement(By.cssSelector("div:nth-child(3) h2:first-child [href='/141-inch-laptop']")).getText();
