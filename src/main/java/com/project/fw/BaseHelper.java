@@ -15,7 +15,7 @@ public class BaseHelper
 
     public boolean IsElementPresent (By locator)
     {
-        return driver.findElements(locator).size()>0;
+        return  driver.findElements(locator).size()>0;
     }
 
     public void type(By locator, String text)
