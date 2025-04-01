@@ -1,5 +1,6 @@
 package com.webshop.tests;
 
+import com.project.models.UserLogInData;
 import org.testng.annotations.Test;
 
 public class LoginTests extends TestBase
@@ -7,19 +8,19 @@ public class LoginTests extends TestBase
     @Test
     public void LoginPositive()
     {
-        clickLoginBtn();
-        enterEmailAndPWD(new UserLogInData().setMail("KashaSasha@gmail.com").setPWD("KashaSasha!"));
-        Login();
-        isLogoutBtnPresent();
+        app.getUser().clickLoginBtn();
+        app.getUser().enterEmailAndPWD(new UserLogInData().setMail("KashaSasha@gmail.com").setPWD("KashaSasha!"));
+        app.getUser().Login();
+        app.getUser().isLogoutBtnPresent();
     }
 
     @Test
     public void LoginEmptyEmail()
     {
-        clickLoginBtn();
-        enterEmailAndPWD(new UserLogInData().setMail("").setPWD("KashaSasha!"));
-        Login();
-        LoginErrorDisplayed();
+        app.getUser().clickLoginBtn();
+        app.getUser().enterEmailAndPWD(new UserLogInData().setMail("").setPWD("KashaSasha!"));
+        app.getUser().Login();
+        app.getUser().LoginErrorDisplayed();
     }
 
 

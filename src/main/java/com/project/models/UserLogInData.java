@@ -1,4 +1,4 @@
-package com.webshop.tests;
+package com.project.models;
 
 public class UserLogInData
 {

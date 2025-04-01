@@ -1,70 +1,41 @@
 package com.webshop.tests;
 
+import com.project.fw.ProductHelper;
+import com.project.models.UserLogInData;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class AddItemToCartTests extends TestBase
-
-{
+public class AddItemToCartTests extends TestBase {
     @BeforeMethod
-    public void preconditionLogin()
-
-    {
-        clickLoginBtn();
-        enterEmailAndPWD(new UserLogInData().setMail("KashaSasha@gmail.com").setPWD("KashaSasha!"));
-        Login();
-        isLogoutBtnPresent();
+    public void preconditionLogin() {
+        app.getUser().clickLoginBtn();
+        app.getUser().enterEmailAndPWD(new UserLogInData().setMail("KashaSasha@gmail.com").setPWD("KashaSasha!"));
+        app.getUser().Login();
+        app.getUser().isLogoutBtnPresent();
     }
 
 
     @Test
 
-        public void AddToCart()
-    {
+    public void AddToCart() {
         //check that Element exists in list of products
-        String productInList = getProductInList();
+        String productInList = app.getProduct().getProductInList();
 
-        clickAddProToCart();
-        pause(3000);
-        checkPopUpAppears();
-        clickOnCartFromPopUp();
-        clickOnLogo();
-        clickOnCartFromHeader();
+        app.getProduct().clickAddProToCart();
+        app.getProduct().pause(3000);
+        app.getProduct().checkPopUpAppears();
+        app.getProduct().clickOnCartFromPopUp();
+        app.getProduct().clickOnLogo();
+        app.getProduct().clickOnCartFromHeader();
 
         //check that Element exists in Cart of products
-        String productInCart = getProductInCart();
+        String productInCart = app.getProduct().getProductInCart();
 
         //check that productInList is equal to productInCart
-        prInListEqualPrInCart(productInCart, productInList);
+        ProductHelper.prInListEqualPrInCart(productInCart, productInList);
     }
-
+}
 //------------------------------------------------------------------------------------------------
-//    @Test
-//    public void findElementTableWithCssTest() {
-//        List<WebElement> rows = this.driver.findElements(By.cssSelector("tr"));
-//        System.out.println(rows.size());
-//
-//        for(WebElement el : rows) {
-//            System.out.println(el.getText());
-//            System.out.println("***********");
-//            WebElement row4 = this.driver.findElement(By.cssSelector("tr:nth-child(4)"));
-//            System.out.println(row4.getText());
-//            this.driver.findElement(By.xpath("//tr[4]"));
-//            WebElement row7item1 = this.driver.findElement(By.cssSelector("tr:nth-child(7) td:nth-child(1)"));
-//            System.out.println(row7item1.getText());
-//            System.out.println("***********");
-//            WebElement row8last = this.driver.findElement(By.cssSelector("tr:nth-child(8) td:last-child"));
-//            System.out.println(row8last.getText());
-//            System.out.println("***********");
-//        }
-
-
-//
-//        WebElement element = driver.findElement(By.xpath("//a[text()='14.1-inch Laptop']"));
-//
-//        String text = element.getText();
-//
-//        System.out.println(text);
 
 ////add first product
 //        click(By.cssSelector("[onclick*='31/1/1']"));
@@ -86,31 +57,6 @@ public class AddItemToCartTests extends TestBase
 //        int productInCart = product();
 //
 //        Assert.assertEquals(productInCart, productInList);
-
-    }
-
-
-
-
-//    public String product1()
-//    {
-//       return driver.findElement(By.xpath("//a[text()='14.1-inch Laptop']")).getText();
-//    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //public class addAndRemove extends testBase
 //{
