@@ -18,8 +18,7 @@ test {
     useTestNG()
 }
 
-
-task qa(type:Test){
+task qa1(type:Test){
     useTestNG()
     if(project.hasProperty('browser'))
     {
