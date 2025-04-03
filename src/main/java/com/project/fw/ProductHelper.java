@@ -50,7 +50,8 @@ public class ProductHelper extends BaseHelper
         click(By.name("updatecart"));
     }
 
-    public void checkLine() {
+    public void checkLine()
+    {
         click(By.name("removefromcart"));
     }
 

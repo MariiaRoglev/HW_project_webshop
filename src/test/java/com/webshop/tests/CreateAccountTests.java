@@ -1,10 +1,21 @@
 package com.webshop.tests;
 
 import com.project.models.UserRegData;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class CreateAccountTests extends TestBase
 {
+    @BeforeMethod
+
+    public void ensurePrecondition()
+    {
+        if(!app.getUser().IsLoginBtnPresent())
+        {
+            app.getUser().clickLogoutBTN();
+        }
+    }
+
 
     @Test(enabled = false)
     public void createNewUser ()

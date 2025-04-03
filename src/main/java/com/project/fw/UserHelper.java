@@ -63,4 +63,17 @@ public class UserHelper extends BaseHelper
     public void LoginErrorDisplayed() {
         Assert.assertTrue(IsElementPresent(By.xpath("//span[text()='Login was unsuccessful. Please correct the errors and try again.']")));
     }
+
+
+    public void clickLogoutBTN()
+    {
+        click(By.cssSelector("[href='/logout']"));
+    }
+
+    public boolean IsLoginBtnPresent()
+    {
+        return IsElementPresent(By.cssSelector("[href='/login']"));
+    }
 }
+
+
