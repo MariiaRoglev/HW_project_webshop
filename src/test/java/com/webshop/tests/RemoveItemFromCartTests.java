@@ -25,6 +25,7 @@ public class RemoveItemFromCartTests extends TestBase {
 
         app.getProduct().clickOnLogo();
 
+
     }
 
 
@@ -38,13 +39,13 @@ public class RemoveItemFromCartTests extends TestBase {
         app.getProduct().checkLine();
         app.getProduct().updateShoppingCart();
 
+        app.getProduct().pause(1000);
+
         int cartAfter = app.getProduct().QtyOfProduct();
 
-        //Assert.assertEquals(cartBefore, cartAfter);
+        Assert.assertEquals(cartAfter,cartBefore);
     }
 
 
 }
-
-
 
