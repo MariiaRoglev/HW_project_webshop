@@ -2,10 +2,12 @@ package com.webshop.tests;
 
 import com.project.fw.ProductHelper;
 import com.project.models.UserLogInData;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class AddItemToCartTests extends TestBase {
+
     @BeforeMethod
     public void ensurePrecondition()
     {
@@ -13,12 +15,6 @@ public class AddItemToCartTests extends TestBase {
         {
             app.getUser().clickLogoutBTN();
         }
-    }
-
-    @Test
-
-    public void preconditionLogin()
-    {
 
         app.getUser().clickLoginBtn();
         app.getUser().clickLoginBtn();
@@ -27,9 +23,7 @@ public class AddItemToCartTests extends TestBase {
         app.getUser().isLogoutBtnPresent();
     }
 
-
     @Test
-
     public void AddToCart() {
         //check that Element exists in list of products
         String productInList = app.getProduct().getProductInList();
@@ -46,6 +40,12 @@ public class AddItemToCartTests extends TestBase {
 
         //check that productInList is equal to productInCart
         ProductHelper.prInListEqualPrInCart(productInCart, productInList);
+    }
+
+    @AfterMethod
+    public void postCondition()
+    {
+        app.getProduct().deleteProduct();
     }
 }
 //------------------------------------------------------------------------------------------------

@@ -63,4 +63,11 @@ public class ProductHelper extends BaseHelper
             return 0;
         }
     }
+
+
+    public void deleteProduct()
+    {
+        click(By.name("removefromcart"));
+        click(By.name("updatecart"));
+    }
 }

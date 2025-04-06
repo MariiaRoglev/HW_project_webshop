@@ -7,8 +7,7 @@ import org.testng.annotations.Test;
 public class CreateAccountTests extends TestBase
 {
     @BeforeMethod
-
-    public void ensurePrecondition()
+    public void ensurePrecondition()//we need precondition to be ensure that Loginbtn present, or click smth to present it
     {
         if(!app.getUser().IsLoginBtnPresent())
         {
