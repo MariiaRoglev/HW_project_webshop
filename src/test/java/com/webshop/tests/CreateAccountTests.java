@@ -1,5 +1,6 @@
 package com.webshop.tests;
 
+import com.project.data.AccountData;
 import com.project.models.UserRegData;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -7,7 +8,7 @@ import org.testng.annotations.Test;
 public class CreateAccountTests extends TestBase
 {
     @BeforeMethod
-    public void ensurePrecondition()//we need precondition to be ensure that Loginbtn present, or click smth to present it
+    public void ensurePrecondition()//we need precondition to be ensure that Loginbtn is present, or click smth to present it
     {
         if(!app.getUser().IsLoginBtnPresent())
         {
@@ -21,7 +22,7 @@ public class CreateAccountTests extends TestBase
     {
         app.getUser().clickRegBTN();
         app.getUser().chooseGender();
-        app.getUser().fillAllFields(new UserRegData().setName("Ivan").setSurName("Ivanov").setMail("IvanN@gamil.com").setPassword("QwertyQwerty1!"));
+        app.getUser().fillAllFields(new UserRegData().setName(AccountData.Name).setSurName(AccountData.SurName).setMail(AccountData.Email).setPassword(AccountData.Password));
         app.getUser().registration();
         app.getUser().clickContinueBtn();
         app.getUser().isLogoutBtnPresent();
@@ -32,7 +33,7 @@ public class CreateAccountTests extends TestBase
     {
         app.getUser().clickRegBTN();
         app.getUser().chooseGender();
-        app.getUser().fillAllFields(new UserRegData().setName("Ivan").setSurName("Ivanov").setMail("").setPassword("QwertyQwerty1!"));
+        app.getUser().fillAllFields(new UserRegData().setName(AccountData.Name).setSurName(AccountData.SurName).setMail("").setPassword(AccountData.Password));
         app.getUser().registration();
         app.getUser().RegErrorDisplayed();
     }

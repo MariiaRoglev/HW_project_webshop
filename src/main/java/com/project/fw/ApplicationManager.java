@@ -2,11 +2,13 @@ package com.project.fw;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
 
 public class ApplicationManager {
+
 
     String browser;
     WebDriver driver;
@@ -23,6 +25,7 @@ public class ApplicationManager {
 //for cross-Browser tests
 
         if (browser.equalsIgnoreCase("chrome")) {
+            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
         } else if (browser.equalsIgnoreCase("firefox")) {
             driver = new FirefoxDriver();

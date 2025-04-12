@@ -1,5 +1,6 @@
 package com.webshop.tests;
 
+import com.project.data.UserData;
 import com.project.fw.ProductHelper;
 import com.project.models.UserLogInData;
 import org.testng.annotations.AfterMethod;
@@ -18,7 +19,7 @@ public class AddItemToCartTests extends TestBase {
 
         app.getUser().clickLoginBtn();
         app.getUser().clickLoginBtn();
-        app.getUser().enterEmailAndPWD(new UserLogInData().setMail("KashaSasha@gmail.com").setPWD("KashaSasha!"));
+        app.getUser().enterEmailAndPWD(new UserLogInData().setMail(UserData.EMAIL).setPWD(UserData.PASSWORD));
         app.getUser().Login();
         app.getUser().isLogoutBtnPresent();
     }

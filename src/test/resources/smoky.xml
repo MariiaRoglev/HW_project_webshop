@@ -5,7 +5,7 @@
         <classes>
             <class name="com.webshop.tests.LoginTests">
                 <methods>
-                    <exclude name=".*Negative.*"></exclude>
+                    <exclude name=".*Empty.*"></exclude>
                 </methods>
             </class>
             <class name="com.webshop.tests.AddItemToCartTests"/>

@@ -1,5 +1,6 @@
 package com.webshop.tests;
 
+import com.project.data.UserData;
 import com.project.models.UserLogInData;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -16,7 +17,7 @@ public class RemoveItemFromCartTests extends TestBase {
 
         //Login
         app.getUser().clickLoginBtn();
-        app.getUser().enterEmailAndPWD(new UserLogInData().setMail("KashaSasha@gmail.com").setPWD("KashaSasha!"));
+        app.getUser().enterEmailAndPWD(new UserLogInData().setMail(UserData.EMAIL).setPWD(UserData.PASSWORD));
         app.getUser().Login();
         app.getUser().isLogoutBtnPresent();
 
@@ -24,8 +25,6 @@ public class RemoveItemFromCartTests extends TestBase {
         app.getProduct().clickAddProToCart();
 
         app.getProduct().clickOnLogo();
-
-
     }
 
 

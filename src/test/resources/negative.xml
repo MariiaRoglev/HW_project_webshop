@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Negative" verbose="1">
+    <test name="Negative">
+        <classes>
+            <class name="com.webshop.tests.LoginTests">
+                <methods>
+                    <include name=".*Empty.*">
+                    </include>
+                </methods>
+            </class>
+            <class name="com.webshop.tests.CreateAccountTests">
+                <methods>
+                    <include name=".*Empty.*">
+                    </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

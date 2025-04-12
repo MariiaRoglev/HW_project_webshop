@@ -1,5 +1,6 @@
 package com.webshop.tests;
 
+import com.project.data.UserData;
 import com.project.models.UserLogInData;
 import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
@@ -20,7 +21,7 @@ public class LoginTests extends TestBase
     public void LoginPositive()
     {
         app.getUser().clickLoginBtn();
-        app.getUser().enterEmailAndPWD(new UserLogInData().setMail("KashaSasha@gmail.com").setPWD("KashaSasha!"));
+        app.getUser().enterEmailAndPWD(new UserLogInData().setMail(UserData.EMAIL).setPWD(UserData.PASSWORD));
         app.getUser().Login();
         app.getUser().isLogoutBtnPresent();
     }
@@ -29,7 +30,7 @@ public class LoginTests extends TestBase
     public void LoginEmptyEmail()
     {
         app.getUser().clickLoginBtn();
-        app.getUser().enterEmailAndPWD(new UserLogInData().setMail("").setPWD("KashaSasha!"));
+        app.getUser().enterEmailAndPWD(new UserLogInData().setMail("").setPWD(UserData.PASSWORD));
         app.getUser().Login();
         app.getUser().LoginErrorDisplayed();
     }
