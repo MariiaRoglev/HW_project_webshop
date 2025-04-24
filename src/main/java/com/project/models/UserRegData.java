@@ -52,4 +52,12 @@ public class UserRegData
         this.password = password;
         return this;
     }
+
+    //generate to string. --for entered data in log
+    @Override
+    public String toString() {
+        return "UserRegData{" +
+                "mail='" + mail + '\'' +
+                '}';
+    }
 }
